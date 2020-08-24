@@ -1,2 +1,2 @@
 # mip_paper_2020
-Custom code used for Wang et al. 2020 MIP paper 
+This will be the repository for the custom code used in Wang et al. 2020 MIP paper.
