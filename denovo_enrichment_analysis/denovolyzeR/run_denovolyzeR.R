@@ -1,6 +1,10 @@
-#################################################################
+################################################################################
 # de novo enrichment analysis - denovolyzeR
-#################################################################
+# this statistical framework is published in Samocha et al 2014 (PMID:25086666),
+# and the package denovolyzeR was developed in Ware et al 2015 (PMID:26439716),  
+# Please refer those publications for more details,
+# And denovolyzeR repository: https://github.com/jamesware/denovolyzeR
+################################################################################
 
 # set up working directory
 setwd("/path/to/directory")
