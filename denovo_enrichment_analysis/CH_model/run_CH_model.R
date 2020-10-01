@@ -1,6 +1,9 @@
-#################################################################
+######################################################################
 # de novo enrichment analysis - CH model
-#################################################################
+# CH model was firstly described in O'Roak et al 2012 (PMID:23160955),
+# and further developed and applied in Wang et al 2016 (PMID:27824329) 
+# and Coe et al 2019 (PMID:30559488). Refer those for more details.
+######################################################################
 
 # set up working directory
 setwd("/path/to/directory")
