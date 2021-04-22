@@ -60,8 +60,8 @@ denovolyzeR_stats <- denovolyzeByGene(genes=dnm_table$gene,
                                           includeClasses = c("lof","prot","mis"))
 
 ## Adjust P-Values For Multiple Comparisons - Benjamini & Hochberg (1995) ("BH" or its alias "fdr")
-## NOTE!! The q-values in paper were corrected for all genes with DNM in the 10927 NDD trios (aka. denovo-db) and 6499 ASD trios (aka. SPARK), 
-## in this example code, DNM counts only provided for the 125 genes, so the q-values achieved here may slightly different as what in paper.
+## NOTE!! The q-values in paper were corrected across all genes with DNM; 
+## In this example code, DNM counts only provided for the 125 genes.
 denovolyzeR_stats$lof_qValue <- p.adjust(denovolyzeR_stats$lof_pValue, method = "BH", n = 19618)
 denovolyzeR_stats$mis_qValue <- p.adjust(denovolyzeR_stats$mis_pValue, method = "BH", n = 19618)
 denovolyzeR_stats$prot_qValue <- p.adjust(denovolyzeR_stats$prot_pValue, method = "BH", n = 19618)
