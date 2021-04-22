@@ -60,7 +60,7 @@ denovolyzeR_stats <- denovolyzeByGene(genes=dnm_table$gene,
                                           includeClasses = c("lof","prot","mis"))
 
 ## Adjust P-Values For Multiple Comparisons - Benjamini & Hochberg (1995) ("BH" or its alias "fdr")
-## NOTE!! The q-values in paper were corrected across all genes with DNM; 
+## NOTE!! The q-values in paper were corrected across all genes with DNM for 19618 genes in denovolyzeR; 
 ## In this example code, DNM counts only provided for the 125 genes.
 denovolyzeR_stats$lof_qValue <- p.adjust(denovolyzeR_stats$lof_pValue, method = "BH", n = 19618)
 denovolyzeR_stats$mis_qValue <- p.adjust(denovolyzeR_stats$mis_pValue, method = "BH", n = 19618)
