@@ -45,7 +45,7 @@ colnames(CH_model_combine) <- c("gene","dnLGD","dnMIS","dnLGD_pValue","dnMIS_pVa
 CH_model_combine_output <- CH_model_combine[,c(1:6,8,10)]
 
 ## Adjust P-Values For Multiple Comparisons - Benjamini & Hochberg (1995) ("BH" or its alias "fdr")
-## NOTE!! The q-values in paper were corrected across all genes with DNM; 
+## NOTE!! The q-values in paper were corrected across all genes with DNM for 18946 genes in CH model; 
 ## In this example code, DNM counts only provided for the 125 genes.
 CH_model_combine_output$dnLGD_qValue <- p.adjust(CH_model_combine_output$dnLGD_pValue,method = "BH", n = 18946)
 CH_model_combine_output$dnMIS_qValue <- p.adjust(CH_model_combine_output$dnMIS_pValue,method = "BH", n = 18946)
