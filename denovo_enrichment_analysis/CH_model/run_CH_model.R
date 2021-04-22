@@ -1,8 +1,8 @@
 ######################################################################
 # de novo enrichment analysis - CH model
-# CH model was firstly described in O'Roak et al 2012 (PMID:23160955),
-# and further developed and applied in Wang et al 2016 (PMID:27824329) 
-# and Coe et al 2019 (PMID:30559488). Refer those for more details.
+# CH model was firstly described in O'Roak et al. 2012 (PMID:23160955),
+# and further developed and applied in Wang et al. 2016 (PMID:27824329) 
+# and Coe et al. 2019 (PMID:30559488). Refer those for more details.
 ######################################################################
 
 # set up working directory
@@ -12,14 +12,14 @@ setwd("/path/to/directory")
 # install.packages("tidyverse")
 library(tidyverse)
 
-# load denovop function # FDR correction default as FALSE
-source("denovopcallable_default_FALSE.R")
+# load denovop function
+# source("denovop.R")
 
 # The CH model gene-level null p-values for LGD and all MISsense
-priors <- read.table("CH_Model_AutUS_R_SNPEFF_null_pvalue_LGD_MIS.txt")
+# priors <- read.table("priors.txt")
 
 # The CH model gene-level null p-values for LGD and MIS30 only
-caddpriors <- read.table("CH_Model_AutUS_R_SNPEFF_null_pvalue_LGD_MIS30.txt")
+# caddpriors <- read.table("caddpriors.txt")
 
 # sample size
 denovo_db_NDD_Size <- 10927
@@ -45,8 +45,8 @@ colnames(CH_model_combine) <- c("gene","dnLGD","dnMIS","dnLGD_pValue","dnMIS_pVa
 CH_model_combine_output <- CH_model_combine[,c(1:6,8,10)]
 
 ## Adjust P-Values For Multiple Comparisons - Benjamini & Hochberg (1995) ("BH" or its alias "fdr")
-## NOTE!! The q-values in paper were corrected for all genes with DNM in the 10927 NDD trios (aka. denovo-db) and 6499 ASD trios (aka. SPARK), 
-## in this example code, DNM counts only provided for the 125 genes, so the q-values achieved here may slightly different as what in paper.
+## NOTE!! The q-values in paper were corrected across all genes with DNM; 
+## In this example code, DNM counts only provided for the 125 genes.
 CH_model_combine_output$dnLGD_qValue <- p.adjust(CH_model_combine_output$dnLGD_pValue,method = "BH", n = 18946)
 CH_model_combine_output$dnMIS_qValue <- p.adjust(CH_model_combine_output$dnMIS_pValue,method = "BH", n = 18946)
 CH_model_combine_output$dnMIS30_qValue <- p.adjust(CH_model_combine_output$dnMIS30_pValue,method = "BH", n = 18946)
